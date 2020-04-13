@@ -7,9 +7,6 @@
       <br>
       <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
         <div>
-<!--          <label for="searchedWord">-->
-<!--            Searching word-->
-<!--          </label>-->
           <input id="searchedWord" type="text" formControlName="searchedWord" class="form-control" placeholder="Search any words">
           <div class="input-group-append">
           </div>
@@ -28,11 +25,9 @@
 <div *ngIf="!isResultAvailable">
   <h2> {{word}} </h2>
   <div class="cart-item" *ngFor="let item of enlishDefinitionList">
-<!--    {{item}}-->
     {{item.type}} <br>
     {{item.definition}} <br>
     {{item.example}} <br> <br>
-
   </div>
 </div>
 
