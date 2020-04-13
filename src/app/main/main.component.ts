@@ -12,6 +12,9 @@ export class MainComponent implements OnInit {
 
   searchForm;
   definitions;
+  word;
+  isResultAvailable = true;
+  enlishDefinitionList: string[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,15 +26,22 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.isResultAvailable = false;
+    // console.log(this.isResultAvailable);
   }
 
   onSubmit(userData) {
     // console.log(userData);
     this.definitions = this.searchService.searchWords(userData)
       .subscribe((response: Definitions) => {
-      this.definitions = response;
-      console.log(this.definitions['body'][0]);
-    });
+        this.definitions = response;
+
+        this.enlishDefinitionList = this.searchService.getEnglishDefinitions(this.definitions['body'][0]);
+        this.word = this.enlishDefinitionList[this.enlishDefinitionList.length -1];
+          console.log(this.enlishDefinitionList);
+        this.isResultAvailable = false;
+        console.log(this.enlishDefinitionList);
+      });
 
     // console.warn('You searched for ', userData);
   }

@@ -16,6 +16,7 @@ export class SearchService {
     })
   };
   response;
+  private definitionList: any[];
 
   constructor(
     private httpClient: HttpClient
@@ -44,5 +45,25 @@ export class SearchService {
     }
     // console.log(errorMessage);
     return throwError(errorMessage);
+  }
+
+  getEnglishDefinitions(json) {
+    console.log(json);
+    this.definitionList = [];
+    let word: string = json['word'];
+    let meaning= json['meaning'];
+    console.log(typeof(meaning));
+    for (const definition in meaning) {
+      // tslint:disable-next-line:no-unused-expression
+      const dic = {};
+      console.log(definition);
+      console.log(meaning[definition][0]);
+      dic["type"] = definition;
+      dic["definition"] = meaning[definition][0]['definition'];
+      dic["example"] = meaning[definition][0]['example'];
+      this.definitionList.push(dic);
+    }
+    this.definitionList.push(word);
+    return this.definitionList;
   }
 }

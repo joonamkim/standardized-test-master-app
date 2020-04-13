@@ -1,8 +1,8 @@
-<div
+<div *ngIf="isResultAvailable"
   style="background-image: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?cs=srgb&dl=defocused-image-of-lights-255379.jpg&fm=jpg');">
 
   <section class="jumbotron text-center">
-    <div class="container">
+    <div class="container" >
       <h1 class="jumbotron-heading">Look up any words you would like!</h1>
       <br>
       <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
@@ -25,3 +25,14 @@
     </div>
   </section>
 </div>
+<div *ngIf="!isResultAvailable">
+  <h2> {{word}} </h2>
+  <div class="cart-item" *ngFor="let item of enlishDefinitionList">
+<!--    {{item}}-->
+    {{item.type}} <br>
+    {{item.definition}} <br>
+    {{item.example}} <br> <br>
+
+  </div>
+</div>
+
