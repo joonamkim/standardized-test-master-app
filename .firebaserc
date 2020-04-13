@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "language-master-app": {
+      "hosting": {
+        "gre-app": [
+          "language-master-app"
+        ]
+      }
+    }
+  }
+}

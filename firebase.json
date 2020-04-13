@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "gre-app",
+      "public": "dist/gre-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

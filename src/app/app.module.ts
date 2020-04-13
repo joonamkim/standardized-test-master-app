@@ -9,6 +9,7 @@ import { CardsComponent } from './cards/cards.component';
 import { FooterComponent } from './footer/footer.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {ResultsComponent} from './results/results.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: MainComponent},
+      {path: 'results', component: ResultsComponent},
     ]),
     ReactiveFormsModule
   ],
